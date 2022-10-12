@@ -1,6 +1,6 @@
 {
     "name": "@mosaic-design/commitlint-config",
-    "version": "3.0.0",
+    "version": "1.0.0",
     "description": "Commitlint configuration",
     "main": "commitlint.config.js",
     "scripts": {
@@ -11,7 +11,6 @@
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
     },
-
     "repository": {
         "type": "git",
         "url": "git+https://github.com/mosaic-design/commitlint-config.git"
