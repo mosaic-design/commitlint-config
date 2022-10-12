@@ -17,24 +17,15 @@ jobs:
             - name: Use Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 16.16.0
                   registry-url: https://registry.npmjs.org/
-
-            - name: Use node_modules cache
-              uses: actions/cache@v3
-              id: modules-cache
-              with:
-                  path: '**/node_modules'
-                  key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: ${{ runner.os }}-modules-
+                  cache: npm
 
             - name: Install dependencies
-              if: steps.modules-cache.outputs.cache-hit != 'true'
               run: npm ci --ignore-scripts
 
-            - name: NPM publish
-              id: publish
-              uses: JS-DevTools/npm-publish@v1
-              with:
-                  token: ${{ secrets.NPM_TOKEN }}
-                  tag: 'latest'
+            - name: 📦 NPM publish
+              env:
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: |
+                  npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
