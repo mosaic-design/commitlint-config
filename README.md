@@ -2,7 +2,8 @@
 
 ## Using
 
-Install packages: 
+Install packages:
+
 ```shell
 npm i --save-dev husky @commitlint/cli @commitlint/config-conventional @mosaic-design/commitlint-config
 ```
