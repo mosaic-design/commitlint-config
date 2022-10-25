@@ -1,6 +1,4 @@
-# commitlint-config
-
-Commitlint configuration
+# Commitlint configuration
 
 ## Using
 
